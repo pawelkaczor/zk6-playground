@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.newicom.zk6-playground</groupId>
+		<artifactId>zk6-playground</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.newicom.zk6-playground</groupId>
+	<artifactId>web-interface</artifactId>
+	<packaging>war</packaging>
+
+	<name>Web Interface</name>
+	<description>The Web Interface Project</description>
+
+	<properties>
+		<zk.version>6.0.0</zk.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>zk repository</id>
+			<url>http://mavensync.zkoss.org/maven2</url>
+		</repository>
+	</repositories>
+	<dependencies>
+        <dependency>
+            <groupId>com.newicom.zk6-playground</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.newicom.zk6-playground</groupId>
+            <artifactId>service</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>${zk.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>					
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>2.1.1</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
