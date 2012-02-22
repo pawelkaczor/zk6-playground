@@ -1,18 +1,10 @@
-<zk xmlns="http://www.zkoss.org/2005/zul"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
-
-
-<window border="none" width="100%" height="100%">
-    <borderlayout>
-        <north height="20%" flex="true" border="none"/>
-        <west width="30%" flex="true" border="none"/>
-        <east width="30%" flex="true" border="none"/>
-        <center flex="true" border="none">
-            <div fulfill="=/WEB-INF/pages/log/log.zul"/>
-        </center>
-        <south height="20%" flex="true" border="none"/>
-    </borderlayout>
-</window>
-
+<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
+    <n:h3>ZK 6 Playground</n:h3>
+    <n:ul>
+        <n:li>
+            <n:a href="pages/log/log.zul">
+                My Log
+            </n:a>
+        </n:li>
+    </n:ul>
 </zk>
