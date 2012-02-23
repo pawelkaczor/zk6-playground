@@ -3,6 +3,7 @@ package com.newicom.zk6playground.service.log;
 import com.newicom.zk6playground.model.LogEntry;
 import com.newicom.zk6playground.repository.Repository;
 import com.newicom.zk6playground.repository.log.InMemoryLogEntryRepository;
+import org.apache.commons.lang3.Validate;
 
 import java.util.List;
 
@@ -32,7 +33,9 @@ public class DummyLogService implements LogService {
     }
 
     @Override
-    public void submitEntry(LogEntry entry) {
+    public void submitEntry(final LogEntry entry) {
+        Validate.notNull(entry);
+        Validate.notEmpty(entry.getMessage());
         repository.add(entry);
     }
 

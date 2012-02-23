@@ -90,6 +90,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.12</version>
                 <executions>
                     <execution>
                         <id>integration-test</id>
@@ -108,6 +109,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>${source.jdk.version}</source>
                     <target>${target.jdk.version}</target>
@@ -117,6 +119,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
                 <configuration>
                     <forkMode>pertest</forkMode>
                     <excludes>
@@ -153,9 +156,9 @@
                 <version>${javax.servlet.api.version}</version>
             </dependency>
             <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>2.6</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
             </dependency>
             <dependency>
                 <groupId>javax.validation</groupId>

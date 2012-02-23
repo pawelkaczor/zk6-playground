@@ -34,10 +34,11 @@ public class LogVM {
     }
 
     @Command
-    @NotifyChange({"entries"})
+    @NotifyChange({"newEntry, entries"})
     public void submit() {
         if (newEntry != null) {
             logService.submitEntry(newEntry);
+            entries.add(newEntry);
             newEntry = null;
         }
     }
