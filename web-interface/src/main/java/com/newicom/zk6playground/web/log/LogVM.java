@@ -1,11 +1,12 @@
 package com.newicom.zk6playground.web.log;
 
 import com.newicom.zk6playground.model.LogEntry;
-import com.newicom.zk6playground.service.log.DummyLogService;
+import com.newicom.zk6playground.service.log.DefaultLogService;
 import com.newicom.zk6playground.service.log.LogService;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 
 /**
@@ -17,7 +18,8 @@ public class LogVM {
 
     private ListModelList<LogEntry> entries = new ListModelList<LogEntry>();
 
-    private LogService logService = DummyLogService.getInstance();
+    @WireVariable
+    private LogService logService;
 
     @Init
     public void initialize() {

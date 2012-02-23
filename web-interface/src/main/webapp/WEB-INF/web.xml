@@ -6,6 +6,21 @@
 	<description><![CDATA[ZK6 Playground Web Interface]]></description>
 	<display-name>zk6-playground</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:application-context-web-interface.xml
+        </param-value>
+    </context-param>
+
+    <!-- ====================================================== -->
+    <!--                  SPRING CONTEXT LOADER                 -->
+    <!-- ====================================================== -->
+    <listener>
+        <display-name>Spring Context Loader</display-name>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>
