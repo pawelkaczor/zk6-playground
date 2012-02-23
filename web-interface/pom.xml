@@ -48,7 +48,8 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
-	<build>
+
+    <build>
 		<finalName>zk6-playground</finalName>
 		<plugins>
 			<plugin>
@@ -58,4 +59,39 @@
 			</plugin>
 		</plugins>
 	</build>
+
+    <profiles>
+        <profile>
+            <id>deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>deploy</id>
+                                <goals>
+                                    <goal>redeploy</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <configuration>
+                                <type>existing</type>
+                                <home>${CATALINA_HOME}</home>
+                            </configuration>
+                            <container>
+                                <containerId>tomcat7x</containerId>
+                                <type>installed</type>
+                                <home>${CATALINA_HOME}</home>
+                            </container>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
