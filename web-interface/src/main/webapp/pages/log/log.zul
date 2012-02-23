@@ -10,14 +10,14 @@
         <hbox align="end" width="100%">
             <vbox hflex="1">
                 <label value="What's on your mind?"/>
-                <textbox value="@load(vm.newEntry.message) @save(vm.newEntry.message, before='submit')" multiline="true" maxlength="160" rows="5" hflex="1"/>
+                <textbox value="@load(vm.newEntry.message) @save(vm.newEntry.message, before='submit')" multiline="true" maxlength="160" rows="3" hflex="1"/>
             </vbox>
             <button label="Submit" onClick="@command('submit')"/>
         </hbox>
         <separator height="40px"/>
         <listbox model="@load(vm.entries)" vflex="1">
             <template name="model" var="entry">
-                <listitem>
+                <listitem height="50px">
                     <listcell label="@load(entry.message)"/>
                 </listitem>
             </template>
