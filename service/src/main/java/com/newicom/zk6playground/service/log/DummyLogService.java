@@ -34,8 +34,8 @@ public class DummyLogService implements LogService {
 
     @Override
     public void submitEntry(final LogEntry entry) {
-        Validate.notNull(entry);
-        Validate.notEmpty(entry.getMessage());
+        Validate.notNull(entry, "Log entry is null");
+        Validate.notEmpty(entry.getMessage(), "Log message must not be empty");
         repository.add(entry);
     }
 

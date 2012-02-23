@@ -4,8 +4,8 @@ import com.newicom.zk6playground.model.LogEntry;
 import com.newicom.zk6playground.service.log.DummyLogService;
 import com.newicom.zk6playground.service.log.LogService;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 
 /**
@@ -15,15 +15,13 @@ public class LogVM {
 
     private LogEntry newEntry;
 
-    private ListModelList<LogEntry> entries;
+    private ListModelList<LogEntry> entries = new ListModelList<LogEntry>();
 
     private LogService logService = DummyLogService.getInstance();
 
-    public ListModel<LogEntry> getEntries() {
-        if (entries == null) {
-            entries = new ListModelList<LogEntry>(getLogService().getAll());
-        }
-        return entries;
+    @Init
+    public void initialize() {
+        entries.addAll(getLogService().getAll());
     }
 
     public LogEntry getNewEntry() {
@@ -36,11 +34,13 @@ public class LogVM {
     @Command
     @NotifyChange({"newEntry, entries"})
     public void submit() {
-        if (newEntry != null) {
-            logService.submitEntry(newEntry);
-            entries.add(newEntry);
-            newEntry = null;
-        }
+        submitEntry(newEntry);
+        setNewEntry(null);
+    }
+
+    private void submitEntry(LogEntry entry) {
+        logService.submitEntry(entry);
+        entries.add(entry);
     }
 
     public LogService getLogService() {
@@ -50,4 +50,13 @@ public class LogVM {
     public void setLogService(LogService logService) {
         this.logService = logService;
     }
+
+    public ListModelList<LogEntry> getEntries() {
+        return entries;
+    }
+
+    void setNewEntry(LogEntry newEntry) {
+        this.newEntry = newEntry;
+    }
+
 }
