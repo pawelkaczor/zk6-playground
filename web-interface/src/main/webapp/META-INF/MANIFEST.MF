@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: zk6-playground
+Specification-Version: 1.0.0-SNAPSHOT
+Implementation-Title: com.newicom.zk6playground
+Implementation-Version: 1.0.0-SNAPSHOT

@@ -36,12 +36,18 @@ public class LogEntry implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         LogEntry logEntry = (LogEntry) o;
 
-        if (!id.equals(logEntry.id)) return false;
+        if (!id.equals(logEntry.id)) {
+            return false;
+        }
 
         return true;
     }
