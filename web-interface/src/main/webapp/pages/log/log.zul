@@ -7,10 +7,12 @@
     <window self="@{define(content)}" border="none" width="100%" height="100%" apply="org.zkoss.bind.BindComposer"
             viewModel="@id('vm') @init('com.newicom.zk6playground.web.log.LogVM')"
             validationMessages="@id('vmsgs')">
-        <hbox align="end" width="100%">
+        <hbox align="end" width="100%"
+              form="@id('fx') @load(vm.newEntry, after='submit') @save(vm.newEntry, before='submit')">
             <vbox hflex="1">
                 <label value="What's on your mind?"/>
-                <textbox value="@load(vm.newEntry.message) @save(vm.newEntry.message, before='submit')" multiline="true" rows="3" hflex="1"
+
+                <textbox value="@bind(fx.message)" multiline="true" rows="3" hflex="1"
                          maxlength="160"
                          constraint="no empty"/>
             </vbox>
